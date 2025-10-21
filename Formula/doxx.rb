@@ -1,8 +1,8 @@
 class Doxx < Formula
   desc "Terminal document viewer for .docx files"
   homepage "https://github.com/bgreenwell/doxx"
-  url "https://github.com/bgreenwell/doxx/archive/refs/tags/refs/heads/main.tar.gz"
-  sha256 "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed"
+  url "https://github.com/bgreenwell/doxx/archive/refs/tags/v0.1.2.tar.gz"
+  sha256 "3627e65f39e437d954e1d4f02c30911fef1c5c99388bf6098564e1e89722e80d"
   license "MIT"
   head "https://github.com/bgreenwell/doxx.git", branch: "main"
 
