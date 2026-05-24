@@ -1,18 +1,36 @@
 class Doxx < Formula
   desc "Terminal document viewer for .docx files"
   homepage "https://github.com/bgreenwell/doxx"
-  url "https://github.com/bgreenwell/doxx/archive/refs/tags/v0.1.2.tar.gz"
-  sha256 "3627e65f39e437d954e1d4f02c30911fef1c5c99388bf6098564e1e89722e80d"
+  version "0.1.2"
   license "MIT"
-  head "https://github.com/bgreenwell/doxx.git", branch: "main"
 
-  depends_on "rust" => :build
+  on_macos do
+    on_arm do
+      url "https://github.com/bgreenwell/doxx/releases/download/v#{version}/doxx-aarch64-apple-darwin.tar.xz"
+      sha256 "PLACEHOLDER"
+    end
+    on_intel do
+      url "https://github.com/bgreenwell/doxx/releases/download/v#{version}/doxx-x86_64-apple-darwin.tar.xz"
+      sha256 "PLACEHOLDER"
+    end
+  end
+
+  on_linux do
+    on_arm do
+      url "https://github.com/bgreenwell/doxx/releases/download/v#{version}/doxx-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "PLACEHOLDER"
+    end
+    on_intel do
+      url "https://github.com/bgreenwell/doxx/releases/download/v#{version}/doxx-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "PLACEHOLDER"
+    end
+  end
 
   def install
-    system "cargo", "install", *std_cargo_args
+    bin.install "doxx"
   end
 
   test do
-    assert_match "doxx", shell_output("#{bin}/doxx --version")
+    system "#{bin}/doxx", "--version"
   end
 end
